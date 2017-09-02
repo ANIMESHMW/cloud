@@ -1,0 +1,13 @@
+<?php
+
+
+
+require_once('./vboxServiceWrappers.php');
+
+//connect to service
+$connection = new SoapClient("vboxwebService.wsdl", array('location' => "http://localhost:18083/"));
+
+//Logon to webservice
+$mgr = new IWebsessionManager($connection);
+// Dummy username and password (change to appropriate values or set authentication method to null)
+$vbox = $mgr->logon("username","password");
